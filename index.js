@@ -5,6 +5,8 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
+const moviesRouter = require("./routes/movies");
+const usersRouter = require("./routes/users");
 
 const app = express()
 const { PORT = 3007 } = process.env;
@@ -26,6 +28,9 @@ app.use(cors());
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(requestLogger);
+
+app.use('/movies', auth, moviesRouter);
+app.use('/users', auth, usersRouter);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
