@@ -1,0 +1,34 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "Api for Yandex.Praktikum diploma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IxxyDev/movies-explorer-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IxxyDev/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/IxxyDev/movies-explorer-api#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "celebrate": "^13.0.4",
+    "cors": "^2.8.5",
+    "eslint": "^7.20.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.6",
+    "express-winston": "^4.1.0",
+    "helmet": "^4.4.1",
+    "limiter": "^1.1.5",
+    "mongoose": "^5.11.17",
+    "validator": "^13.5.2",
+    "winston": "^3.3.3"
+  }
+}
