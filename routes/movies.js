@@ -1,4 +1,7 @@
 const express = require('express');
+const {getMovies} = require("../controllers/movies");
+const {deleteMovie} = require("../controllers/movies");
+const {createMovie} = require("../controllers/movies");
 const { celebrate, Joi } = require('celebrate');
 const { isURL } = require('validator');
 const { regExpEn, regExpRu } = require('../utils/regExp')
@@ -17,12 +20,12 @@ moviesRouter.post('/', celebrate({
     year: Joi.string().required().length(4),
     description: Joi.string().required(),
     image: Joi.string().required().custom((url) => {
-      if (!validator.isURL(url, helpers)) {
+      if (!isURL(url, helpers)) {
         return helpers.error('Ссылка невалидна');
       } return url
     }),
     trailer: Joi.string().required().custom((url) => {
-      if (!validator.isURL(url, helpers)) {
+      if (!isURL(url, helpers)) {
         return helpers.error('Ссылка невалидна');
       } return url
     }),
