@@ -4,7 +4,7 @@ const { isURL } = require('validator');
 const { regExpEn, regExpRu } = require('../utils/regExp')
 
 const moviesRouter = express.Router();
-moviesRouter.get('/', getMovie);
+moviesRouter.get('/', getMovies);
 
 moviesRouter.post('/', celebrate({
   body: Joi.object().keys({
