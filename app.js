@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -7,6 +6,9 @@ const rateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
 const moviesRouter = require("./routes/movies");
 const usersRouter = require("./routes/users");
+const {celebrate} = require("celebrate");
+const {login} = require("./controllers/users");
+const {createUser} = require("./controllers/users");
 
 const app = express()
 const { PORT = 3007 } = process.env;
@@ -43,7 +45,4 @@ app.post('/signin', celebrate(userJoiSchema), login);
 app.use('/movies', auth, moviesRouter);
 app.use('/users', auth, usersRouter);
 
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Listening on ${PORT}`);
-});
+app.listen(PORT, () => {});
